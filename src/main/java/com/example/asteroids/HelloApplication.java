@@ -18,6 +18,7 @@ public class HelloApplication extends Application {
         stage.show();
         HelloController controller = fxmlLoader.getController();
         scene.setOnKeyPressed(controller::handleKeyPressed);
+        scene.setOnKeyReleased(controller::handleKeyReleased);
     }
 
     public static void main(String[] args) {
