@@ -1,6 +1,8 @@
 package com.example.asteroids;
 
+import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -8,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Duration;
 
 public class HelloController {
 
@@ -18,15 +21,21 @@ public class HelloController {
     private Group groupRocket;
 
     @FXML
-    private Label lblGameOver;
+    private Label lblGameOver, lblScore;
 
     private double offset = 0;
     private double asteroid_1_x = 900 + Math.random() * 300;
     private double asteroid_2_x = 900 + Math.random() * 300;
     private double asteroid_3_x = 900 + Math.random() * 300;
+    private int score = 0;
+    private double speed = 0;
 
     @FXML
     public void initialize() {
+        asteroid_1_x = 900 + Math.random() * 300;
+        asteroid_2_x = 900 + Math.random() * 300;
+        asteroid_3_x = 900 + Math.random() * 300;
+
         lblGameOver.setVisible(false);
 
         Image background = new Image(getClass().getResourceAsStream("/images/background.jpg"));
@@ -44,10 +53,12 @@ public class HelloController {
         bg1.setImage(background);
         bg2.setImage(background);
         bg2.setLayoutX(900);
+        fireAnimation();
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
+
 
                 if (checkCollision() == true){
                     lblGameOver.setVisible(true);
@@ -56,18 +67,20 @@ public class HelloController {
 
                 lblGameOver.setVisible(false);
 
-                offset -= 1; // offset = offset - 1;
+                offset -= 1+speed; // offset = offset - 1;
                 if (offset <= -900) {
                     offset = 0;
                 }
 
-                asteroid_1_x -= 2;
-                asteroid_2_x -= 2.25;
-                asteroid_3_x -= 1.75;
+                asteroid_1_x -= 2+speed;
+                asteroid_2_x -= 2.25+speed;
+                asteroid_3_x -= 1.75+speed;
 
                 if (asteroid_1_x <= -100) {
                     asteroid_1_x = 900 + Math.random() * 300;
                     asteroid1.setLayoutY(Math.random() * 540);
+                    score++;
+                    speed += 0.2;
                 }
                 asteroid1.setLayoutX(asteroid_1_x);
                 asteroid1.setRotate(asteroid_1_x);
@@ -75,6 +88,8 @@ public class HelloController {
                 if (asteroid_2_x <= -100) {
                     asteroid_2_x = 900 + Math.random() * 300;
                     asteroid2.setLayoutY(Math.random() * 540);
+                    score++;
+                    speed += 0.2;
                 }
                 asteroid2.setLayoutX(asteroid_2_x);
                 asteroid2.setRotate(asteroid_2_x);
@@ -82,11 +97,15 @@ public class HelloController {
                 if (asteroid_3_x <= -100) {
                     asteroid_3_x = 900 + Math.random() * 300;
                     asteroid3.setLayoutY(Math.random() * 540);
+                    score++;
+                    speed += 0.2;
                 }
                 asteroid3.setLayoutX(asteroid_3_x);
                 asteroid3.setRotate(asteroid_3_x);
                 bg1.setLayoutX(offset);
                 bg2.setLayoutX(offset + 900);
+
+                lblScore.setText(String.valueOf(score));
                 }
         };
         timer.start();
@@ -95,11 +114,11 @@ public class HelloController {
 
     public void handleKeyPressed(KeyEvent keyEvent) {
 
-        if (keyEvent.getCode() == KeyCode.UP && groupRocket.getLayoutY() >= -300) {
+        if (keyEvent.getCode() == KeyCode.UP && groupRocket.getLayoutY() >= -300 && checkCollision() == false) {
             groupRocket.setLayoutY(groupRocket.getLayoutY() - 10);
             groupRocket.setRotate(-15);
         }
-        if (keyEvent.getCode() == KeyCode.DOWN && groupRocket.getLayoutY() <= 240) {
+        if (keyEvent.getCode() == KeyCode.DOWN && groupRocket.getLayoutY() <= 240 && checkCollision() == false) {
             groupRocket.setLayoutY(groupRocket.getLayoutY() + 10);
             groupRocket.setRotate(15);
         }
@@ -121,5 +140,14 @@ public class HelloController {
         }
 
         return false;
+    }
+
+    public void fireAnimation(){
+        FadeTransition fire = new FadeTransition(Duration.millis(120),flame);
+        fire.setFromValue(0.3);
+        fire.setToValue(1.2);
+        fire.setCycleCount(Animation.INDEFINITE);
+        fire.setAutoReverse(true);
+        fire.play();
     }
 }
