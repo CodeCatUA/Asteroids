@@ -12,7 +12,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 
-public class HelloController {
+public class GameController {
 
     @FXML
     private ImageView bg1, bg2, rocket, asteroid1, asteroid2, asteroid3, flame;
