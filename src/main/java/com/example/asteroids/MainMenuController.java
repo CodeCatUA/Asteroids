@@ -2,8 +2,10 @@ package com.example.asteroids;
 
 import javafx.event.ActionEvent;
 
-public class MainMenuController {
-    public void newGame(ActionEvent actionEvent) {
+import java.io.IOException;
 
+public class MainMenuController {
+    public void newGame(ActionEvent actionEvent) throws IOException {
+        AsteroidApplication.setRoot("game-view");
     }
 }

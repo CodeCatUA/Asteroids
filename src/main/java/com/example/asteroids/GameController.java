@@ -3,6 +3,7 @@ package com.example.asteroids;
 import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -36,6 +37,11 @@ public class GameController {
 
     @FXML
     public void initialize() {
+        pane.setOnKeyPressed(this::handleKeyPressed);
+        pane.setOnKeyReleased(this::handleKeyReleased);
+        pane.setFocusTraversable(true);
+        Platform.runLater(() -> pane.requestFocus());
+
         asteroid_1_x = 900 + Math.random() * 300;
         asteroid_2_x = 900 + Math.random() * 300;
         asteroid_3_x = 900 + Math.random() * 300;

@@ -4,9 +4,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="pane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="com.example.asteroids.GameController">
+<AnchorPane fx:id="pane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.asteroids.GameController">
     <ImageView fx:id="bg1" fitHeight="600" fitWidth="900" />
     <ImageView fx:id="bg2" fitHeight="600" fitWidth="900" />
     <Group fx:id="groupRocket">
@@ -23,8 +24,32 @@
     </Label>
     <Label fx:id="lblScore" layoutX="850" layoutY="50" text="0" textFill="yellow">
             <font>
-                <Font size = "36.0"></Font>
+                <Font size="36.0" />
             </font>
     </Label>
+   <Button layoutX="841.0" layoutY="568.0" mnemonicParsing="false" onAction="#goBack" text="Повернутись в меню">
+      <textFill>
+         <LinearGradient endX="1.0" endY="1.0" startX="0.6113744075829384">
+            <stops>
+               <Stop>
+                  <color>
+                     <Color red="0.6861110925674438" green="0.75" blue="0.2708333432674408" />
+                  </color>
+               </Stop>
+               <Stop offset="0.8879409092704507">
+                  <color>
+                     <Color red="0.42105263471603394" green="0.01949317753314972" blue="0.01949317753314972" />
+                  </color>
+               </Stop>
+               <Stop offset="1.0">
+                  <color>
+                     <Color />
+                  </color>
+               </Stop>
+            </stops>
+         </LinearGradient>
+      </textFill>
+   </Button>
+
 
 </AnchorPane>
