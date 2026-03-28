@@ -10,7 +10,7 @@ import java.io.IOException;
 public class AsteroidApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(AsteroidApplication.class.getResource("mainMenu-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(AsteroidApplication.class.getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
         stage.setTitle("Asteroids");
         stage.setResizable(false);

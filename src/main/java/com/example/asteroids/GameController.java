@@ -10,9 +10,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 public class GameController {
+
+    @FXML
+    private AnchorPane pane;
 
     @FXML
     private ImageView bg1, bg2, rocket, asteroid1, asteroid2, asteroid3, flame;
