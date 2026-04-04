@@ -17,7 +17,7 @@
          <font>
             <Font size="24.0" />
          </font></Button>
-      <Button fx:id="settings" layoutX="361.0" layoutY="303.0" mnemonicParsing="false" text="Налаштування" textFill="#ffaa00">
+      <Button fx:id="settings"  onAction="#goSettings" layoutX="361.0" layoutY="303.0" mnemonicParsing="false" text="Налаштування" textFill="#ffaa00">
          <font>
             <Font size="24.0" />
          </font></Button>

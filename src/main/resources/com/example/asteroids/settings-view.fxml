@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.asteroids.SettingsMenuController"
-            prefHeight="600.0" prefWidth="900.0">
-
+<AnchorPane prefHeight="600.0" prefWidth="900.0" stylesheets="@styleSettings.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.asteroids.SettingsMenuController">
+   <children>
+      <Button layoutX="700.0" layoutY="500.0" mnemonicParsing="false" onAction="#goBack" text="Повертунитись в меню" />
+      <Button layoutX="319.0" layoutY="264.0" mnemonicParsing="false" onAction="#easy" text="Easy" />
+      <Button layoutX="436.0" layoutY="264.0" mnemonicParsing="false" onAction="#medium" text="Medium" />
+      <Button layoutX="584.0" layoutY="264.0" mnemonicParsing="false" onAction="#hard" text="Hard" />
+   </children>
 </AnchorPane>

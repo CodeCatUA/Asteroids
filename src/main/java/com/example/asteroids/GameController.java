@@ -93,7 +93,7 @@ public class GameController {
                     asteroid_1_x = 900 + Math.random() * 300;
                     asteroid1.setLayoutY(Math.random() * 540);
                     score++;
-                    speed += 0.2;
+                    speed += GameSettings.getAsteroidSpeed();
                 }
                 asteroid1.setLayoutX(asteroid_1_x);
                 asteroid1.setRotate(asteroid_1_x);
@@ -102,7 +102,7 @@ public class GameController {
                     asteroid_2_x = 900 + Math.random() * 300;
                     asteroid2.setLayoutY(Math.random() * 540);
                     score++;
-                    speed += 0.2;
+                    speed += GameSettings.getAsteroidSpeed();
                 }
                 asteroid2.setLayoutX(asteroid_2_x);
                 asteroid2.setRotate(asteroid_2_x);
@@ -111,7 +111,7 @@ public class GameController {
                     asteroid_3_x = 900 + Math.random() * 300;
                     asteroid3.setLayoutY(Math.random() * 540);
                     score++;
-                    speed += 0.2;
+                    speed += GameSettings.getAsteroidSpeed();
                 }
                 asteroid3.setLayoutX(asteroid_3_x);
                 asteroid3.setRotate(asteroid_3_x);
