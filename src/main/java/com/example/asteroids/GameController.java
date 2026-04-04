@@ -4,6 +4,7 @@ import javafx.animation.Animation;
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.control.Label;
@@ -13,6 +14,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+
+import java.io.IOException;
 
 public class GameController {
 
@@ -159,5 +162,9 @@ public class GameController {
         fire.setCycleCount(Animation.INDEFINITE);
         fire.setAutoReverse(true);
         fire.play();
+    }
+
+    public void goBack(ActionEvent actionEvent) throws IOException {
+        AsteroidApplication.setRoot("mainMenu-view");
     }
 }
