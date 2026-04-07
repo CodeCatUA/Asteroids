@@ -12,14 +12,15 @@ public class SettingsMenuController {
     }
 
     public void easy(ActionEvent actionEvent) {
-        GameSettings.setAsteroidSpeed(0.1);
+        GameSettings.getInstance().setAsteroidSpeed(0.1);
     }
 
     public void medium(ActionEvent actionEvent) {
-        GameSettings.setAsteroidSpeed(0.2);
+        GameSettings.getInstance().setAsteroidSpeed(0.2);
     }
 
     public void hard(ActionEvent actionEvent) {
-        GameSettings.setAsteroidSpeed(0.3);
+
+        GameSettings.getInstance().setAsteroidSpeed(1.3);
     }
 }

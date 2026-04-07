@@ -2,12 +2,22 @@ package com.example.asteroids;
 
 public class GameSettings {
     private double asteroidSpeed = 0.2;
+    private static GameSettings instance;
 
-    public  double getAsteroidSpeed(){
+    private GameSettings() {
+    }
+
+    public static GameSettings getInstance(){
+        instance = new GameSettings();
+        System.out.println(instance);
+        return instance;
+    }
+
+    public double getAsteroidSpeed() {
         return asteroidSpeed;
     }
 
-    public void setAsteroidSpeed(double asteroidSpeed){
+    public void setAsteroidSpeed(double asteroidSpeed) {
         this.asteroidSpeed = asteroidSpeed;
     }
 
