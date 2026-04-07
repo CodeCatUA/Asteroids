@@ -8,7 +8,9 @@ public class GameSettings {
     }
 
     public static GameSettings getInstance(){
-        instance = new GameSettings();
+        if (instance == null){
+            instance = new GameSettings();
+        }
         System.out.println(instance);
         return instance;
     }
